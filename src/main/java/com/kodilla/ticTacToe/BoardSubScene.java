@@ -15,7 +15,7 @@ public class BoardSubScene extends SubScene {
 
 
     public BoardSubScene(int boardSize) {
-        super(new FlowPane(), 510, 500);
+        super(new Pane(), 500, 500);
         this.boardSize = boardSize;
         prefHeight(500);
         prefWidth(500);
@@ -25,31 +25,22 @@ public class BoardSubScene extends SubScene {
         BackgroundImage backgroundImage = new BackgroundImage(new Image(BACKGROUND_IMAGE, 500, 500, false, true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
 
-        FlowPane root2 = (FlowPane) this.getRoot();
+        Pane root2 = (Pane) this.getRoot();
 
         root2.setBackground(new Background(backgroundImage));
     }
 
     public void setBackgroundImage(int boardSize) {
         switch (boardSize) {
-            case 3:
-                BACKGROUND_IMAGE = BACKGROUND_IMAGE3x3;
-                break;
-            case 4:
-                BACKGROUND_IMAGE = BACKGROUND_IMAGE4x4;
-                break;
-            case 5:
-                BACKGROUND_IMAGE = BACKGROUND_IMAGE5x5;
-                break;
-            case 6:
-                BACKGROUND_IMAGE = BACKGROUND_IMAGE6x6;
-                break;
-            default:
-                System.out.println("ERROR");
+            case 3 -> BACKGROUND_IMAGE = BACKGROUND_IMAGE3x3;
+            case 4 -> BACKGROUND_IMAGE = BACKGROUND_IMAGE4x4;
+            case 5 -> BACKGROUND_IMAGE = BACKGROUND_IMAGE5x5;
+            case 6 -> BACKGROUND_IMAGE = BACKGROUND_IMAGE6x6;
+            default -> System.out.println("ERROR");
         }
     }
 
-    public FlowPane getFlowPane() {
-        return (FlowPane) this.getRoot();
+    public Pane getPane() {
+        return (Pane) this.getRoot();
     }
 }
